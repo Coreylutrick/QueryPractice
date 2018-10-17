@@ -12,7 +12,7 @@ where Country = 'Brazil'
 select 
 	InvoiceId,
 	BillingCountry,
-	FullName = c.FirstName + ' ' + c.LastName,
+	FullName = FirstName + ' ' + LastName,
 	InvoiceDate,
 	c.CustomerId
 from Invoice as i,
