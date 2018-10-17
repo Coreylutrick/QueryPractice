@@ -20,5 +20,10 @@ from Invoice as i,
 where c.Country = 'Brazil'
 	and i.CustomerId = c.CustomerId
 
+select *
+from Employee 
+where Title = 'Sales Support Agent'
+
+
 
 
