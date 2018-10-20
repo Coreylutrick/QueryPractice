@@ -57,3 +57,35 @@ select Sum(i.Total) as Total2009, (Select Sum(i.Total) from Invoice as i where Y
 from Invoice as i
 where Year(i.InvoiceDate) = 2009
 
+select Count(*) as LineItemTotal
+from Invoice
+	join InvoiceLine on Invoice.InvoiceId = InvoiceLine.InvoiceId
+where Invoice.InvoiceId = 37
+
+select Count(InvoiceLineId) as LineItems
+from InvoiceLine
+group by InvoiceId
+
+select i.InvoiceLineId,
+	i.InvoiceId,
+	i.TrackId,
+	i.Quantity,
+	i.UnitPrice,
+	SongName = t.Name
+from InvoiceLine as i, Track as t
+where i.TrackId = t.TrackId
+
+select i.InvoiceLineId,
+	i.InvoiceId,
+	i.TrackId,
+	i.Quantity,
+	i.UnitPrice,
+	SongName = t.Name,
+	t.Composer
+from InvoiceLine as i, Track as t
+where i.TrackId = t.TrackId
+
+select BillingCountry, Count(*) #OfInvoices
+from Invoice
+group by BillingCountry
+
