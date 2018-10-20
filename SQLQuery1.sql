@@ -48,3 +48,12 @@ from invoice as i,
 where c.CustomerId = i.CustomerId
 	and e.EmployeeId = c.SupportRepId
 	
+select Count(*) 
+from Invoice
+where Year(InvoiceDate) = 2009
+or Year(InvoiceDate) = 2011
+
+select Sum(i.Total) as Total2009, (Select Sum(i.Total) from Invoice as i where Year(i.InvoiceDate) = 2011) as Total2011
+from Invoice as i
+where Year(i.InvoiceDate) = 2009
+
